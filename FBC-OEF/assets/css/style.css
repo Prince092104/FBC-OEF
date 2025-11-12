@@ -1,0 +1,41 @@
+/* Custom styles for FBC Online Enrollment Portal */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.hero-section {
+    background: linear-gradient(to right, #007bff, #6610f2);
+    color: white;
+    padding: 100px 0;
+}
+
+.programs-section .card {
+    transition: transform 0.3s;
+}
+
+.programs-section .card:hover {
+    transform: translateY(-5px);
+}
+
+.about-section {
+    background-color: #f8f9fa;
+}
+
+.quotes-section {
+    background-color: #e9ecef;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    .hero-section .row {
+        text-align: center;
+    }
+}

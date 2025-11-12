@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferee Enrollment - FBC Online Enrollment Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">FBC Student Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="enrollment-old.html">Enrollment (Old)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="enrollment-freshmen.html">Enrollment (Freshmen)</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="enrollment-transferee.html">Enrollment (Transferee)</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enrollment Form -->
+    <section class="enrollment-section py-5">
+        <div class="container">
+            <h1>Transferee Enrollment</h1>
+            <div class="progress mb-4">
+                <div class="progress-bar" id="progressBar" style="width: 25%"></div>
+            </div>
+            <div class="step-indicator mb-4">
+                <span class="step active" data-step="1">Basic Info</span>
+                <span class="step" data-step="2">Educational Info</span>
+                <span class="step" data-step="3">Family Background</span>
+                <span class="step" data-step="4">Payments</span>
+            </div>
+
+            <form id="enrollmentForm">
+                <!-- Step 1: Basic Information -->
+                <div class="step-content" id="step1">
+                    <h3>Step 1: Basic Information</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="previousSchool" class="form-label">Previous School</label>
+                        <input type="text" class="form-control" id="previousSchool" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </div>
+
+                <!-- Step 2: Educational Information -->
+                <div class="step-content d-none" id="step2">
+                    <h3>Step 2: Educational Information</h3>
+                    <div class="mb-3">
+                        <label for="previousProgram" class="form-label">Previous Program</label>
+                        <input type="text" class="form-control" id="previousProgram" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transferCredits" class="form-label">Transfer Credits</label>
+                        <input type="number" class="form-control" id="transferCredits" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gpa" class="form-label">GPA from Previous School</label>
+                        <input type="number" step="0.01" class="form-control" id="gpa" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="intendedProgram" class="form-label">Intended Program at FBC</label>
+                        <select class="form-control" id="intendedProgram" required>
+                            <option value="">Select Program</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="theology">Theology</option>
+                            <option value="business">Business Administration</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-secondary me-2" onclick="prevStep()">Previous</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </div>
+
+                <!-- Step 3: Family Background -->
+                <div class="step-content d-none" id="step3">
+                    <h3>Step 3: Family Background</h3>
+                    <div class="mb-3">
+                        <label for="fatherName" class="form-label">Father's Name</label>
+                        <input type="text" class="form-control" id="fatherName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fatherOccupation" class="form-label">Father's Occupation</label>
+                        <input type="text" class="form-control" id="fatherOccupation" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="motherName" class="form-label">Mother's Name</label>
+                        <input type="text" class="form-control" id="motherName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="motherOccupation" class="form-label">Mother's Occupation</label>
+                        <input type="text" class="form-control" id="motherOccupation" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="siblings" class="form-label">Number of Siblings</label>
+                        <input type="number" class="form-control" id="siblings" required>
+                    </div>
+                    <button type="button" class="btn btn-secondary me-2" onclick="prevStep()">Previous</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </div>
+
+                <!-- Step 4: Payments -->
+                <div class="step-content d-none" id="step4">
+                    <h3>Step 4: Payments</h3>
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                        <select class="form-control" id="paymentMethod" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="online">Online Payment</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount to Pay</label>
+                        <input type="number" class="form-control" id="amount" value="4500" readonly>
+                    </div>
+                    <div class="mb-3" id="referenceNumberDiv" style="display: none;">
+                        <label for="referenceNumber" class="form-label">Reference Number</label>
+                        <input type="text" class="form-control" id="referenceNumber">
+                    </div>
+                    <button type="button" class="btn btn-secondary me-2" onclick="prevStep()">Previous</button>
+                    <button type="submit" class="btn btn-success">Submit Enrollment</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/enrollment-transferee.js"></script>
+</body>
+</html>

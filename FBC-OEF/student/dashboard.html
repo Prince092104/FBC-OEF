@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - FBC Online Enrollment Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">FBC Student Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="enrollment-old.html">Enrollment (Old Students)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="enrollment-freshmen.html">Enrollment (Freshmen)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="enrollment-transferee.html">Enrollment (Transferee)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../programs.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Welcome Student
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Welcome back, Student!</h1>
+                    <p>Continue your enrollment process or explore our programs.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="../assets/images/school.jpg" alt="School Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section py-5">
+        <div class="container">
+            <h2>Our Programs</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Bachelor of Science in Computer Science</h5>
+                            <p class="card-text">A comprehensive program in computer science.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more programs -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section py-5 bg-light">
+        <div class="container">
+            <h2>Our Community</h2>
+            <p>About FBC...</p>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="quotes-section py-5">
+        <div class="container">
+            <blockquote class="blockquote">
+                <p>"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</p>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Prospectus Section -->
+    <section class="prospectus-section py-5 bg-light">
+        <div class="container">
+            <h2>Prospectus</h2>
+            <div id="prospectusContent">
+                <!-- Prospectus content will be loaded here -->
+                <p>Loading prospectus...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li>Enrollment</li>
+                        <li>Support</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="../assets/images/logo.png" alt="FBC Logo" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <p>Facebook Page</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student.js"></script>
+</body>
+</html>
